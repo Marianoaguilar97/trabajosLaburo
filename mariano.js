@@ -14,26 +14,20 @@ const viajeC = new Viaje("paris", 40, 270000)
 const viajeD = new Viaje("berlin", 23, 420000)
 
 const listaViajes = [viajeA, viajeB, viajeC, viajeD]
-
+let precioTotal = 0;
 
 let carrito = parseInt(prompt("Ingrese la cantidad de paquetes que desea comprar: "))
     while ((isNaN(carrito)) || carrito < 1) {
         carrito = parseInt(prompt("Debe de ingresar un numero, los numeros menores a 1 o las letras no son validos"))
 }
-let precioTotal = 0;
 
 function calculoPrecio(cantidad, precio){
     precioTotal += cantidad * precio
 }
 
 function carritoCompra(cantidad, viaje){
-     if(viaje.lugares >= cantidad){
         calculoPrecio(cantidad, viaje.precio)
         alert("el precio es de: $" + precioTotal)
-    }
-    else{
-        alert("no tenemos la cantidad deseada, la cantidad disponible es de " + viaje.lugares)
-    }
 }
 
 let nombreViaje = []
@@ -56,22 +50,21 @@ for(let i = 0; i < carrito; i ++){
         }
         /*while (viaje.lugares < cantidad) {
         parseInt(prompt("no tenemos la cantidad deseada, la cantidad disponible es de " + viaje.lugares))
-        }*/
+        
         let cantidad = parseInt(prompt("ingrese la cantidad de lugares que desea comprar"))
         while (((isNaN(cantidad)) || cantidad < 1)){
         cantidad = parseInt(prompt("Debe de ingresar un numero, los numeros menores a 1 o las letras no son validos"))
         }
-       /* while (viajeA.lugares < cantidad) {
+       while (viajeA.lugares < cantidad) {
             cantidad= parseInt(prompt("no tenemos la cantidad deseada, la cantidad disponible es de " + viajeA.lugares))*/
     if (compra == viajeA.nombre){
-        /*
-        let cantidad = parseInt(prompt("ingrese la cantidad de lugares que desea comprar"))
+        let cantidad = parseInt(prompt("ingrese la cantidad de paquetes que desea comprar"))
             while (((isNaN(cantidad)) || cantidad < 1)){
                 cantidad = parseInt(prompt("Debe de ingresar un numero, los numeros menores a 1 o las letras no son validos"))
             }
             while (viajeA.lugares < cantidad) {
                 cantidad= parseInt(prompt("no tenemos la cantidad deseada, la cantidad disponible es de " + viajeA.lugares))
-            }*/
+            }
         carritoCompra(cantidad, viajeA)
     }
     else if (compra == viajeB.nombre) {
