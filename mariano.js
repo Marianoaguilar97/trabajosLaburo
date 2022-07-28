@@ -1,8 +1,10 @@
-function Viaje(nombre, lugares, precio) {
-    this.nombre = nombre
-    this.lugares = lugares
-    this.precio = precio
-    this.lugaresOcupados = function (cantidad) {this.lugares -= cantidad}
+class Viaje {
+    constructor (nombre,lugares, precio) {
+        this.nombre = nombre
+        this.lugares = lugares
+        this.precio = precio
+        /*this.lugaresOcupados = function (cantidad) {this.lugares -= cantidad} (No se como implementar esto) */
+    }
 }
 
 /* me gustaria que el objeto tenga la propiedad fecha, pero no la puse porque cuando le pida al usuario no se como validar
@@ -23,22 +25,19 @@ let carrito = parseInt(prompt("Ingrese la cantidad de paquetes que desea comprar
 
 function calculoPrecio(cantidad, precio){
     precioTotal += cantidad * precio
+    return precioCarrito = cantidad * precio
 }
 
 function carritoCompra(cantidad, viaje){
         calculoPrecio(cantidad, viaje.precio)
-        alert("el precio es de: $" + precioTotal)
+        alert("el precio es de: $" + precioCarrito)
 }
 
 let nombreViaje = []
 
-function nombrarViajes() {
-    for(const viaje of listaViajes){
-        nombreViaje.push(viaje.nombre)
-    }
-}
-
-nombrarViajes()
+listaViajes.forEach( (viaje) => {
+    nombreViaje.push(viaje.nombre)
+})
 
 for(let i = 0; i < carrito; i ++){
 
@@ -48,35 +47,32 @@ for(let i = 0; i < carrito; i ++){
         while ((compra != viajeA.nombre) && (compra != viajeB.nombre) && (compra != viajeC.nombre) && (compra != viajeD.nombre))  {
         compra = prompt("Sus unicas opciones de ingreso son: \n"  + nombreViaje.join ("\n ")).toLowerCase()
         }
-        /*while (viaje.lugares < cantidad) {
-        parseInt(prompt("no tenemos la cantidad deseada, la cantidad disponible es de " + viaje.lugares))
-        
-        let cantidad = parseInt(prompt("ingrese la cantidad de lugares que desea comprar"))
-        while (((isNaN(cantidad)) || cantidad < 1)){
-        cantidad = parseInt(prompt("Debe de ingresar un numero, los numeros menores a 1 o las letras no son validos"))
-        }
-       while (viajeA.lugares < cantidad) {
-            cantidad= parseInt(prompt("no tenemos la cantidad deseada, la cantidad disponible es de " + viajeA.lugares))*/
     if (compra == viajeA.nombre){
         let cantidad = parseInt(prompt("ingrese la cantidad de paquetes que desea comprar"))
-            /*while (((isNaN(cantidad)) || cantidad < 1)){
-                cantidad = parseInt(prompt("Debe de ingresar un numero, los numeros menores a 1 o las letras no son validos"))
-            }*/
             while ((viajeA.lugares < cantidad) || ((isNaN(cantidad)) || cantidad < 1)) {
                 cantidad= parseInt(prompt("No ingrese letras, simbolos ni numeros inferiores a 1. \n \n No tenemos la cantidad deseada, la cantidad disponible es de " + viajeA.lugares))
             }
         carritoCompra(cantidad, viajeA)
     }
     else if (compra == viajeB.nombre) {
-        
+        let cantidad = parseInt(prompt("ingrese la cantidad de paquetes que desea comprar"))
+            while ((viajeB.lugares < cantidad) || ((isNaN(cantidad)) || cantidad < 1)) {
+                cantidad= parseInt(prompt("No ingrese letras, simbolos ni numeros inferiores a 1. \n \n No tenemos la cantidad deseada, la cantidad disponible es de " + viajeA.lugares))
+            }
         carritoCompra(cantidad, viajeB)
     }
     else if (compra == viajeC.nombre) {
-        
+        let cantidad = parseInt(prompt("ingrese la cantidad de paquetes que desea comprar"))
+            while ((viajeC.lugares < cantidad) || ((isNaN(cantidad)) || cantidad < 1)) {
+                cantidad= parseInt(prompt("No ingrese letras, simbolos ni numeros inferiores a 1. \n \n No tenemos la cantidad deseada, la cantidad disponible es de " + viajeA.lugares))
+            }
         carritoCompra(cantidad, viajeC)
     }
     else if (compra == viajeD.nombre) {
-        
+        let cantidad = parseInt(prompt("ingrese la cantidad de paquetes que desea comprar"))
+            while ((viajeD.lugares < cantidad) || ((isNaN(cantidad)) || cantidad < 1)) {
+                cantidad= parseInt(prompt("No ingrese letras, simbolos ni numeros inferiores a 1. \n \n No tenemos la cantidad deseada, la cantidad disponible es de " + viajeA.lugares))
+            }
         carritoCompra(cantidad, viajeD)
     }
     else{
